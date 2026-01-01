@@ -14,20 +14,36 @@ st.title("📑 Gemini 论文润色工坊")
 with st.sidebar:
     st.header("⚙️ 设置")
     
+    # 1. 尝试读取系统配置的 Key
     try:
-        default_key = st.secrets.get("GEMINI_API_KEY", "")
+        system_key = st.secrets.get("GEMINI_API_KEY", "")
     except:
-        default_key = ""
-    api_key = st.text_input("Gemini API Key", value=default_key, type="password")
-    
-    if api_key:
-        st.success("✅ API Key 已设置")
+        system_key = ""
+
+    # 2. 逻辑判断
+    if system_key:
+        # 如果后台配置了 Key
+        api_key = system_key
+        st.success("✅ 已激活公共 API Key")
+        st.caption("你可以直接开始使用，无需输入密钥。")
+        
+        # (可选) 允许用户覆盖
+        with st.expander("我想用自己的 Key"):
+            user_input_key = st.text_input("覆盖默认 Key", type="password")
+            if user_input_key:
+                api_key = user_input_key
+    else:
+        # 如果后台没配置 Key，强制要求输入
+        st.warning("⚠️ 未检测到公共 Key")
+        api_key = st.text_input("请输入 Gemini API Key", type="password")
     
     st.divider()
     
+    # 下面是原来的模型选择代码...
     model_choice = st.selectbox(
         "选择模型:",
-        ["gemini-2.5-flash", "gemini-2.0-flash", "gemini-3-flash-preview"]
+        ["gemini-1.5-pro", "gemini-2.0-flash", "gemini-1.5-flash"],
+        index=0
     )
     
     style_option = st.selectbox("润色目标", 
