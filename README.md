@@ -17,7 +17,7 @@
 * **🔍 Track Changes (修订追踪)**: Visualizes changes with a red/green highlight system, similar to Word's track changes.
     * 提供类似 Word 修订模式的差异对比视图，直观显示删除（红色）和新增（绿色）的内容。
 * **🤖 Multi-Model Support (多模型支持)**: Switch between `Gemini 1.5 Pro` (Best Quality) and `Gemini 2.0 Flash` (Fastest).
-    * 支持在 Gemini 1.5 Pro（质量最佳）和 Gemini 2.0 Flash（速度最快）之间自由切换。
+    * 支持在 Gemini 3.0（质量最佳）和 Gemini 2.5 Flash（速度最快）之间自由切换。
 * **✍️ Dual Modes (双模式)**: Upload a file or paste text directly for quick fixes.
     * 支持“上传文件”和“直接粘贴文本”两种模式，满足不同场景需求。
 * **📥 One-Click Export (一键导出)**: Compiles all sections (original or polished) into a new `.docx` file.
