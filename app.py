@@ -42,7 +42,7 @@ with st.sidebar:
     # 下面是原来的模型选择代码...
     model_choice = st.selectbox(
         "选择模型:",
-        ["gemini-3-flash", "gemini-2.5-flash", "gemini-2.0-flash"],
+        ["gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.0-flash"],
         index=0
     )
     
